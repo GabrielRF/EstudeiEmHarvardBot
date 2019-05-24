@@ -1,5 +1,4 @@
 import sys
-import configparser
 import textwrap
 import telebot
 import os
@@ -7,12 +6,7 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
 
-
-config = configparser.ConfigParser()
-config.sections()
-config.read('bot.conf')
-
-TOKEN = config['BOT']['TOKEN']
+TOKEN = os.getenv('TOKEN')
 
 bot = telebot.TeleBot(TOKEN)
 
