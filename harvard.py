@@ -1,8 +1,8 @@
 import sys
 import configparser
 import textwrap
-
 import telebot
+import os
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
@@ -50,6 +50,6 @@ def Create_Image(message):
     img.save(str(message.from_user.id) + '.jpg')
     photo = open(str(message.from_user.id) + '.jpg', 'rb')
     bot.send_photo(message.from_user.id, photo)
-
+    os.remove(str(message.from_user.id) + '.jpg')
 bot.polling(none_stop=True)
 
